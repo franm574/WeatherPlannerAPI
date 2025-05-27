@@ -1,0 +1,23 @@
+name: Generate SBOM
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  generate-sbom:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Generate SBOM
+        run: dotnet sbom

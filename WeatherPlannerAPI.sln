@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35828.75
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherPlannerAPI", "WeatherPlannerAPI\WeatherPlannerAPI.csproj", "{E81FF1D6-78FA-46D6-BF8A-1639DF06422B}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "WeatherAnalytics", "WeatherAnalytics\WeatherAnalytics.pyproj", "{33F58989-35AB-4800-84F5-B584540B54AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherPlannerAPI.Tests", "WeatherPlannerAPI.Tests\WeatherPlannerAPI.Tests.csproj", "{1B0E147B-7FBA-4F7A-B495-031B1B1FF305}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E81FF1D6-78FA-46D6-BF8A-1639DF06422B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E81FF1D6-78FA-46D6-BF8A-1639DF06422B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E81FF1D6-78FA-46D6-BF8A-1639DF06422B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E81FF1D6-78FA-46D6-BF8A-1639DF06422B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33F58989-35AB-4800-84F5-B584540B54AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33F58989-35AB-4800-84F5-B584540B54AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B0E147B-7FBA-4F7A-B495-031B1B1FF305}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B0E147B-7FBA-4F7A-B495-031B1B1FF305}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B0E147B-7FBA-4F7A-B495-031B1B1FF305}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B0E147B-7FBA-4F7A-B495-031B1B1FF305}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8D697D23-48C4-40B1-9A52-96F0272373F8}
+	EndGlobalSection
+EndGlobal

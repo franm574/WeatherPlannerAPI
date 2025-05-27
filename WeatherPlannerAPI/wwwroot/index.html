@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task Viewer</title>
+    <!-- Bootstrap CSS from CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container mt-5">
+
+    <!-- Weather Info Section -->
+    <div class="mb-4 p-4 border rounded bg-light" id="weather-info">
+        <h2 class="h5">Current Weather & Recommendation</h2>
+        <p><strong>Condition:</strong> <span id="condition">Loading...</span></p>
+        <p><strong>Advice:</strong> <span id="advice">Fetching recommendation...</span></p>
+    </div>
+
+    <!-- Task List Header -->
+    <h1 class="mb-4">Task List</h1>
+    <button onclick="loadTasks()" class="btn btn-outline-primary mb-3">Refresh Tasks</button>
+
+    <!-- Responsive Table Container -->
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Scheduled Date</th>
+                    <th>Weather</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="task-table-body"></tbody>
+        </table>
+    </div>
+
+    <!-- Script for dynamic data -->
+    <script>
+        function loadTasks() {
+            fetch('/tasks')
+                .then(response => response.json())
+                .then(data => {
+                    const tableBody = document.getElementById('task-table-body');
+                    tableBody.innerHTML = '';
+                    data.forEach(task => {
+                        const row = `
+                                <tr class="${task.isComplete ? 'table-success' : ''}">
+                                    <td>${task.title}</td>
+                                    <td>${task.scheduledDate}</td>
+                                    <td>${task.weatherCondition}</td>
+                                    <td>
+                                        <span class="badge ${task.isComplete ? 'bg-success' : 'bg-warning text-dark'}">
+                                            ${task.isComplete ? 'Complete' : 'Incomplete'}
+                                        </span>
+                                    </td>
+                                </tr>`;
+                        tableBody.innerHTML += row;
+                    });
+                });
+        }
+
+        // Initial load
+        loadTasks();
+
+        // Get weather condition and advice from the server
+        fetch('/recommendation')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                return response.json();
+            })
+            .then(data => {
+                document.getElementById('condition').textContent = data.condition;
+                document.getElementById('advice').textContent = data.recommendation;
+            })
+            .catch(() => {
+                document.getElementById('condition').textContent = "Unavailable";
+                document.getElementById('advice').textContent = "Unable to load suggestion.";
+            });
+    </script>
+</body>
+</html>

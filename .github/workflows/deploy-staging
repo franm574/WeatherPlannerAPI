@@ -1,0 +1,19 @@
+name: Deploy to Staging
+
+on:
+  pull_request:
+    types: [labeled]
+
+jobs:
+  deploy-if-staging:
+    if: contains(github.event.pull_request.labels.*.name, 'stage')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Deploy to Azure Web App (Staging)
+        uses: azure/webapps-deploy@v2
+        with:
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          app-name: weatherplanner

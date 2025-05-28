@@ -1,8 +1,11 @@
 ci:
-  - .github/workflows/*
+- changed-files:
+    - any-glob-to-any-file: ['.github/workflows/*']
 
 backend:
-  - WeatherPlannerAPI/*
+- changed-files:
+    - any-glob-to-any-file: ['WeatherPlannerAPI/*']
 
 docs:
-  - README.md
+- changed-files:
+    - any-glob-to-any-file: ['README.md']

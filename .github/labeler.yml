@@ -1,9 +1,8 @@
-# Label rules based on file paths
-.github/workflows/*:
-  - ci
+ci:
+  - .github/workflows/*
 
-WeatherPlannerAPI/*:
-  - backend
+backend:
+  - WeatherPlannerAPI/*
 
-README.md:
-  - docs
+docs:
+  - README.md
